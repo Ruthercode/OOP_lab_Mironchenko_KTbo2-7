@@ -32,7 +32,7 @@ std::string Interactor::interaction(char command, int target, int cnt)
         return "Bad command";
     }
     
-    if (target < 1 && target > 2)
+    if (target < 1 || target > 2)
     {
         return "Bad target";
     }
@@ -46,45 +46,32 @@ std::string Interactor::interaction(char command, int target, int cnt)
     std::stringstream result;
     result << cnt << ")\n";
 
-    if (command == '+')
+    try 
     {
-        try 
+        if (command == '+')
         {
             _first->matrixSum(*_second);
         }
-        catch (std::logic_error e)
-        {
-            result << e.what() << '\n';
-            return result.str();
-        }
-        catch (std::length_error e)
-        {
-            result << e.what() << '\n';
-            return result.str();
-        }
-    }
-
-    else if (command == '*')
-    {
-        try 
+        else if (command == '*')
         {
             _first->matrixMul(*_second);
-        }
-        catch (std::logic_error e)
+        }  
+        else if (command == 'T')
         {
-            result << e.what() << '\n';
-            return result.str();
+            _first->matrixTransposition();
         }
-        catch (std::length_error e)
-        {
-            result << e.what() << '\n';
-            return result.str();
-        }
-    }  
-    else if (command == 'T')
-    {
-        _first->matrixTransposition();
     }
+    catch (std::logic_error e)
+    {
+        result << e.what() << '\n';
+        return result.str();
+    }
+    catch (std::length_error e)
+    {
+        result << e.what() << '\n';
+        return result.str();
+    }
+    
     
     result << *_first;
 
