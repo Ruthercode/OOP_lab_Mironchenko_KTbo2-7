@@ -1,12 +1,12 @@
 #include <iostream>
 #include "interactor.h"
-using namespace std;
 
+using namespace std;
 
 int main()
 {
     Interactor it;
-    it.readOblects("input.txt");
+    it.readObjects("input.txt");
     
     freopen("commands.txt", "r", stdin);
     int n;
