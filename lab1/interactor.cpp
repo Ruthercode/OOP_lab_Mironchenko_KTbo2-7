@@ -1,5 +1,5 @@
 #include <fstream>
-#include <ostream>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include "interactor.h"
@@ -25,9 +25,9 @@ void Interactor::readObjects(std::string file)
     fin.close();
 }
 
-std::string Interactor::interaction(char command, int target, int cnt)
+std::string Interactor::iteration(char command, int target)
 {
-    if (command != '+' && command != '*' && command != 'T' )
+    if (command != '+' && command != '*' && command != 'T')
     {
         return "Bad command";
     }
@@ -44,7 +44,6 @@ std::string Interactor::interaction(char command, int target, int cnt)
     }
 
     std::stringstream result;
-    result << cnt << ")\n";
 
     try 
     {
@@ -83,30 +82,51 @@ std::string Interactor::interaction(char command, int target, int cnt)
     return result.str();
 }
 
-std::ostream& operator<<(std::ostream& out, const Interactor& object)
+void Interactor::help()
 {
-    out << "///////////////////////////////////\n";
-    if (object._first == nullptr) 
-    {
-        out << "First matrix has no elements\n";
-    }
-    else 
-    {
-        out << *object._first;
-    }
-
-    if (object._second == nullptr) 
-    {
-        out << "Second matrix has no elements\n";
-    }
-    else 
-    {
-        out << *object._second;
-    }
-    out << "///////////////////////////////////\n";
-    return out;
+    std::cout << "\"+\" command - get matrix sum" << std::endl;
+    std::cout << "\"*\" command - get matrix mul" << std::endl;
+    std::cout << "\"T\" command - get matrix transposition" << std::endl;
+    std::cout << "\"H\" command - get help" << std::endl;
+    std::cout << "\"E\" command - exit" << std::endl;
 }
 
+void Interactor::init(std::string matrices)
+{
+    readObjects(matrices);
+    
+    char command;
+    int target;
+
+    help();
+
+    do
+    {
+        std::cout << "write command: ";
+        std::cin >> command;
+        
+        if (toupper(command)  == 'H')
+        {
+            help();
+        }
+        else if (toupper(command) == 'E')
+        {
+            break;
+        }
+        else
+        {
+            std::cout << "write num of target matrix (first or second): ";
+            std::cin >> target;
+
+            std::cout << "----------------------------------------\n";
+            std::cout << iteration(command, target) << std::endl;
+            std::cout << "----------------------------------------\n";
+        }
+    } while (command != 'E');
+    
+    std::cout << *_first << std::endl;
+    std::cout << *_second << std::endl;
+}
 Interactor::~Interactor()
 {
     if (_first != nullptr) delete _first;

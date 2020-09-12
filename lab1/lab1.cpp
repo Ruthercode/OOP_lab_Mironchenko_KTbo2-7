@@ -5,20 +5,8 @@ using namespace std;
 
 int main()
 {
+    
     Interactor it;
-    it.readObjects("input.txt");
-    
-    freopen("commands.txt", "r", stdin);
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        char ch;
-        int tar;
-        cin >> ch >> tar;
-        cout << it.interaction(ch, tar, i+1) << endl;
-    }
-    
-    cout << it << endl;
+    it.init("input.txt");
     return 0;
 }

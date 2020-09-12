@@ -46,6 +46,11 @@ Matrix::Matrix(int n, int m)
     _A = _buildMatrix(n,m);
 }
 
+ bool Matrix::isEmpty() const
+ {
+     return _colsLen == 0 || _rowsLen == 0;
+ }
+
 int Matrix::getColsLen() const 
 {
     return _colsLen;
@@ -69,7 +74,7 @@ void Matrix::matrixSum(const Matrix& term)
         throw std::logic_error("Another matrix has a different shape\n");
     }
     
-    if (_rowsLen == 0 || _rowsLen == 0 || term.getColsLen() == 0 || term.getRowsLen() == 0)
+    if (isEmpty() || term.isEmpty())
     {
         throw std::length_error("Empty matrix\n");
     }
@@ -90,7 +95,7 @@ void Matrix::matrixMul(const Matrix& factor)
         throw std::logic_error("Rows of one matrix are not equal to columns of another\n");
     }
     
-    if (_rowsLen == 0 || _rowsLen == 0 || factor.getColsLen() == 0 || factor.getRowsLen() == 0)
+    if (isEmpty() || factor.isEmpty())
     {
         throw std::length_error("Empty matrix\n");
     }
@@ -117,7 +122,7 @@ void Matrix::matrixMul(const Matrix& factor)
 
 void Matrix::matrixTransposition()
 {
-    if (_rowsLen == 0 || _rowsLen == 0)
+    if (isEmpty())
     {
         throw std::length_error("Empty matrix\n");
     }
