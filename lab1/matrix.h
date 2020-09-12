@@ -11,18 +11,18 @@ class Matrix
         int _colsLen, _rowsLen;
         double** _A;
 
-        double** _buildMatrix(int n, int m);
-        void _destroyMatrix(double** matrix, int n);
+        double** _buildMatrix(const int& n, const int& m);
+        void _destroyMatrix(double** matrix, const int& n);
 
     public:
         Matrix();
-        Matrix(int n, int m);
+        Matrix(const int& n, const int& m);
 
         bool isEmpty() const;
 
         int getColsLen() const;
         int getRowsLen() const;
-        double& matrixField(int i, int j);
+        double& matrixField(const int& i, const int& j);
         
         void matrixSum(const Matrix& term);
         void matrixMul(const Matrix& factor);

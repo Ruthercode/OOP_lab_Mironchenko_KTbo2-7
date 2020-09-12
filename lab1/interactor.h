@@ -9,12 +9,12 @@ class Interactor
     public:
         Interactor();
 
-        void readObjects(std::string file);
+        void readObjects(const std::string& file);
 
-        std::string iteration(char command, int target);
+        std::string iteration(const char& command, const int&  target);
 
         void help();
-        void init(std::string matrices);
+        void init(const std::string& matrices);
 
         ~Interactor();
 };

@@ -6,7 +6,7 @@
 
 Interactor::Interactor(): _first(nullptr), _second(nullptr) {}
 
-void Interactor::readObjects(std::string file)
+void Interactor::readObjects(const std::string& file)
 {
     std::ifstream fin(file); 
 
@@ -25,7 +25,7 @@ void Interactor::readObjects(std::string file)
     fin.close();
 }
 
-std::string Interactor::iteration(char command, int target)
+std::string Interactor::iteration(const char& command, const int&  target)
 {
     if (command != '+' && command != '*' && command != 'T')
     {
@@ -91,7 +91,7 @@ void Interactor::help()
     std::cout << "\"E\" command - exit" << std::endl;
 }
 
-void Interactor::init(std::string matrices)
+void Interactor::init(const std::string& matrices)
 {
     readObjects(matrices);
     

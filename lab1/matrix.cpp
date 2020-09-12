@@ -2,7 +2,7 @@
 #include <ostream>
 #include "matrix.h"
 
-double** Matrix::_buildMatrix(int n, int m)
+double** Matrix::_buildMatrix(const int& n, const int& m)
 {
     double** array = new double*[n];
 
@@ -19,7 +19,7 @@ double** Matrix::_buildMatrix(int n, int m)
     return array;
 }
 
-void Matrix::_destroyMatrix(double** matrix, int n)
+void Matrix::_destroyMatrix(double** matrix, const int& n)
 {
     for (int i = 0; i < n; ++i)
     {
@@ -39,7 +39,7 @@ Matrix::Matrix()
     _A = nullptr;
 }
 
-Matrix::Matrix(int n, int m)
+Matrix::Matrix(const int& n, const int& m)
 {
     _colsLen = n;
     _rowsLen = m;
@@ -61,7 +61,7 @@ int Matrix::getRowsLen() const
     return _rowsLen;
 }
 
-double& Matrix::matrixField(int i, int j) 
+double& Matrix::matrixField(const int& i, const int& j) 
 {
     return _A[i][j];
 }
