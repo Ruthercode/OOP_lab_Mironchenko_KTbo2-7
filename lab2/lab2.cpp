@@ -1,9 +1,9 @@
-#include "list.h"
+#include "item.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    List<int> x;
+    Item<char> x;
     return 0;
 }
