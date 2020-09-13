@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
  
-template <typename T> class Item
+template <class T>  class Item
 {
 public:
     T data;
@@ -18,12 +18,7 @@ template <typename T>
 Item<T>::Item(): next(this), prev(this) {}
 
 template <typename T>
-Item<T>::Item(T val)
-{
-    data = val;
-    next = this;
-    prev = this;
-}
+Item<T>::Item(T val): data(val), next(this), prev(this) {}
 
 template <typename T>
 Item<T>::~Item(){}

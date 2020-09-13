@@ -1,9 +1,12 @@
-#include "item.h"
+
 #include <iostream>
+
+#include "interactor.h"
 using namespace std;
 
 int main()
 {
-    Item<char> x;
+    Interactor it;
+    it.init("clients.txt", "food.txt");
     return 0;
 }

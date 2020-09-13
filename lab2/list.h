@@ -2,6 +2,7 @@
 #define LIST_H
 #include "item.h"
 #include <stdexcept>
+#include <iostream>
 
 template <class T>  class List
 {
@@ -19,6 +20,27 @@ public:
 
     T head() const;
     T tail() const;
+
+    // Linker gave an error for the implementation of an operator outside the class
+    friend std::ostream& operator<<(std::ostream& out, const List<T>& object)
+    {
+        if (object._items == nullptr)
+        {
+            out << "No elements\n";
+        }
+        Item<T>* tmp = object._items;
+
+        int cnt = 1;
+        do
+        {
+            out << cnt << ") " << tmp->data;
+            
+            tmp = tmp->next;
+            cnt++;
+        } while (tmp != object._items);
+        
+        return out;
+    }
 };
 
 template <typename T>
@@ -136,4 +158,5 @@ T List<T>::tail() const
         throw std::logic_error("Container has no elements");
     }
 }
+
 #endif /* LIST_H */
