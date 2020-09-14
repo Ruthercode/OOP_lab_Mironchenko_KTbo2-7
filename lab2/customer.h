@@ -3,14 +3,14 @@
 #include <string>
 #include "food.h"
 
-class Client 
+class Customer 
 {
     private:
         std::string _name;
         unsigned int _money;
     public:
-        Client(std::string name, unsigned int money): _name(name), _money(money) {}
-        ~Client() {}
+        Customer(std::string name, unsigned int money): _name(name), _money(money) {}
+        ~Customer() {}
 
         std::string getNameOfClient() const 
         {
@@ -37,9 +37,9 @@ class Client
             
         }
 
-        friend std::ostream& operator<<(std::ostream& out, const Client& object)
+        friend std::ostream& operator<<(std::ostream& out, const Customer& object)
         {
-            out << "Client " << object._name << " has " << object._money << "$\n";
+            out << "Customer " << object._name << " has " << object._money << "$\n";
             return out;
         }
 };

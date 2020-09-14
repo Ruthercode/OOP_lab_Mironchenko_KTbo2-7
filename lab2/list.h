@@ -27,6 +27,7 @@ public:
         if (object._items == nullptr)
         {
             out << "No elements\n";
+            return out;
         }
         Item<T>* tmp = object._items;
 
@@ -97,7 +98,7 @@ template <typename T>
 void List<T>::deleteFromHead()
 {
     if (_items == nullptr)
-        return;
+        throw std::logic_error("Container has no elements");
     
     if (_items->next == _items)
     {
@@ -120,7 +121,8 @@ template <typename T>
 void List<T>::deleteFromTail()
 {
     if (_items == nullptr)
-        return;
+        throw std::logic_error("Container has no elements");
+
     
     if (_items->next == _items)
     {
