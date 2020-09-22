@@ -127,6 +127,7 @@ void Interactor::init(const std::string& matrices)
     std::cout << *_first << std::endl;
     std::cout << *_second << std::endl;
 }
+
 Interactor::~Interactor()
 {
     if (_first != nullptr) delete _first;
