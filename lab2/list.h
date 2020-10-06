@@ -12,8 +12,8 @@ public:
     List();
     ~List();
 
-    void addToTail(T val);
-    void addToHead(T val);
+    void addToTail(const T& val);
+    void addToHead(const T&  val);
 
     void deleteFromHead();
     void deleteFromTail();
@@ -57,7 +57,7 @@ List<T>::~List()
 } 
 
 template <typename T>
-void List<T>::addToTail(T val)
+void List<T>::addToTail(const T&  val)
 {
     Item<T>* tmp = new Item<T>(val);
     if (_items == nullptr)
@@ -76,7 +76,7 @@ void List<T>::addToTail(T val)
 }
 
 template <typename T>
-void List<T>::addToHead(T val)
+void List<T>::addToHead(const T&  val)
 {
     Item<T>* tmp = new Item<T>(val);
     if (_items == nullptr)
