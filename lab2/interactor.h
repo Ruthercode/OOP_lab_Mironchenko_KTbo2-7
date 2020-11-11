@@ -10,10 +10,12 @@
 class Interactor
 {
     private:
-        Queue<Customer> _clients;
-        Stack<Food> _food;
+        Container<Customer>* _clients;
+        Container<Food>* _food;
 
         void _help() const;
+        void _fileInput(const std::string& clients_list, const std::string& food_list);
+        void _interaction();
     public:
         Interactor();
         ~Interactor();

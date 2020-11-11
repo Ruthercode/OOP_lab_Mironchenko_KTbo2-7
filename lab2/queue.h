@@ -3,6 +3,9 @@
 #include "container.h"
 #include "list.h"
 
+#include <string>
+#include <sstream>
+
 template <class T> class Queue : public Container<T>
 {
 private:
@@ -20,15 +23,7 @@ public:
     bool isEmpty() const;
     int size() const;
     T front() const;
-    
-    friend std::ostream& operator<<(std::ostream& out, const Queue<T>& object)
-    {
-        out << "----------------------------\n";
-        out << "Queue has " << object._size << " elements:\n";
-        out << object._que << "\n";
-        out << "----------------------------\n";
-        return out;
-    }
+    std::string out() const;
 };
 
 template <typename T>
@@ -76,5 +71,14 @@ int Queue<T>::size() const
     return _size;
 }
 
-
+template <typename T>
+std::string Queue<T>::out() const
+{
+    std::stringstream out;
+    out << "----------------------------\n";
+    out << "Queue has " << _size << " elements:\n";
+    out << _que << "\n";
+    out << "----------------------------\n";
+    return out.str();
+}
 #endif /* QUEUE_H */

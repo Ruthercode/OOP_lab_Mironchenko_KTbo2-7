@@ -3,6 +3,8 @@
 #include "container.h"
 #include "list.h"
 
+#include <string>
+#include <sstream>
 
 template <class T> class Stack : public Container<T>
 {
@@ -20,15 +22,9 @@ public:
     bool isEmpty() const;
     int size() const;
     T front() const;
-    
-    friend std::ostream& operator<<(std::ostream& out, const Stack<T>& object)
-    {
-        out << "----------------------------\n";
-        out << "Stack has " << object._size << " elements:\n";
-        out << object._stack << "\n";
-        out << "----------------------------\n";
-        return out;
-    }
+
+    std::string out() const;
+
 };
 
 template <typename T>
@@ -74,5 +70,16 @@ template <typename T>
 int Stack<T>::size() const
 {
     return _size;
+}
+
+template <typename T>
+std::string Stack<T>::out() const
+{
+    std::stringstream out;
+    out << "----------------------------\n";
+    out << "Stack has " << _size << " elements:\n";
+    out << _stack << "\n";
+    out << "----------------------------\n";
+    return out.str();
 }
 #endif /* STACK_H  */
