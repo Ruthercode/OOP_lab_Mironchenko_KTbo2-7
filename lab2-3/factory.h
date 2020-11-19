@@ -6,11 +6,11 @@
 #include "customer.h" 
 #include "food.h" 
 
-class ContainerFabric 
+class ContainerFactory
 {
     public:
-    ContainerFabric() {};
-    ~ContainerFabric() {};
+    ContainerFactory() {};
+    ~ContainerFactory() {};
 
     Container<Customer>* getClientsList(bool isStack);
     Container<Food>* getFoodList(bool isStack);

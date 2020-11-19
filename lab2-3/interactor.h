@@ -7,14 +7,14 @@
 #include "stack.h"
 #include "food.h"
 #include "customer.h"
-#include "fabric.h"
+#include "factory.h"
 
 class Interactor
 {
     private:
         Container<Customer>* _clients;
         Container<Food>* _food;
-        ContainerFabric _fabric;
+        ContainerFactory _factory;
 
         void _help() const;
         void _fileInput(const std::string& clients_list, const std::string& food_list);

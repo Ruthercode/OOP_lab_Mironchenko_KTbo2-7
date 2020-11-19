@@ -5,15 +5,15 @@
 
 #include "queue.h" 
 #include "stack.h" 
-#include "fabric.h"
+#include "factory.h"
 
-Container<Customer>* ContainerFabric::getClientsList(bool isStack)
+Container<Customer>* ContainerFactory::getClientsList(bool isStack)
 {
     if (isStack) return new Stack<Customer>;
     else return new Queue<Customer>;
 }
 
-Container<Food>* ContainerFabric::getFoodList(bool isStack)
+Container<Food>* ContainerFactory::getFoodList(bool isStack)
 {
     if (isStack) return new Stack<Food>;
     else return new Queue<Food>;

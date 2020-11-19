@@ -6,7 +6,7 @@
 #include "food.h"
 #include "customer.h"
 #include "interactor.h"
-#include "fabric.h"
+#include "factory.h"
 
 void Interactor::_help() const
 {
@@ -27,7 +27,7 @@ void Interactor::_help() const
     std::cout <<"===========================================\n";
 }
 
-Interactor::Interactor(): _clients(nullptr), _food(nullptr), _fabric(ContainerFabric()) {}
+Interactor::Interactor(): _clients(nullptr), _food(nullptr), _factory(ContainerFactory()) {}
 Interactor::~Interactor() {}
 
 void Interactor::_fileInput(const std::string& clients_list, const std::string& food_list)
@@ -135,14 +135,14 @@ void Interactor::init(const std::string& clients_list, const std::string& food_l
     std::cin >> ans;
     ans = tolower(ans);
 
-    _clients = _fabric.getClientsList(ans == 'y');
+    _clients = _factory.getClientsList(ans == 'y');
     
     
     std::cout << "Food list are stack?(y/n)\n";
     std::cin >> ans;
     ans = tolower(ans);
 
-    _food = _fabric.getFoodList(ans == 'y');
+    _food = _factory.getFoodList(ans == 'y');
 
     _fileInput(clients_list, food_list);
     _help();
