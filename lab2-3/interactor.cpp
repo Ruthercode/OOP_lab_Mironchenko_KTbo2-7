@@ -28,7 +28,11 @@ void Interactor::_help() const
 }
 
 Interactor::Interactor(): _clients(nullptr), _food(nullptr), _factory(ContainerFactory()) {}
-Interactor::~Interactor() {}
+Interactor::~Interactor() 
+{
+    delete _clients;
+    delete _food;
+}
 
 void Interactor::_fileInput(const std::string& clients_list, const std::string& food_list)
 {
