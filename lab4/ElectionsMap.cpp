@@ -8,7 +8,7 @@ void ElectionsMap::AddItem(const Elections& item)
 std::vector<Elections> ElectionsMap::Search(double rait) const
 {
 
-    if (rait < 0.0)
+    if (rait < 0.0 || rait > 100.0)
         throw std::logic_error("bad rating\n");
     
     std::vector<Elections> candidates;

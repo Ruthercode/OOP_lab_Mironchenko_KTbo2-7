@@ -1,4 +1,6 @@
-3
-Vladimir Vladimirovich Putin 7.10.1952 Russia 78.2
-Alexander Griror'evich Lukashenko 30.07.1954 Belarus 73.5
-Ulia Vladimirovna Timoshenko 27.10.1960 Ukraine 44.2
+5
+Vladimir Vladimirovich Putin 7.10.1952 Russia 76.69
+Alexander Griror'evich Lukashenko 30.07.1954 Belarus 3.0
+Ulia Vladimirovna Timoshenko 27.10.1960 Ukraine 15
+Pagislav Dmitrievich Zhmyschenko 14.01.2003 Donbass 1
+Dead Inside Anatolyevich 15.5.1984 Internet  4
