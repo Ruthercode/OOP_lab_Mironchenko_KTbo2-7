@@ -1,7 +1,7 @@
-#include "Elections.h"
+#include "Candidate.h"
 #include <iostream>
 
-Elections::Elections(const std::string& fullName, 
+Candidate::Candidate(const std::string& fullName, 
               const Date& dateOfBirth,
               const std::string& job, 
               const double& rating): _fullName(fullName),
@@ -14,24 +14,24 @@ Elections::Elections(const std::string& fullName,
 }
 
 
-std::string Elections::GetFullName() const
+std::string Candidate::GetFullName() const
 {
     return _fullName;
 }
-Date Elections::GetDateOfBirth() const
+Date Candidate::GetDateOfBirth() const
 {
     return _dateOfBirth;
 }
-std::string Elections::GetJob() const
+std::string Candidate::GetJob() const
 {
     return _job;
 }
-double Elections::GetRating() const
+double Candidate::GetRating() const
 {
     return _rating;
 }
 
-std::ostream& operator<<(std::ostream& out, const Elections& object)
+std::ostream& operator<<(std::ostream& out, const Candidate& object)
 {
     out << "-----------------------------\n";
     out << "Full name: " << object._fullName <<"\n";

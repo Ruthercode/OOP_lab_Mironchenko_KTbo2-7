@@ -1,14 +1,14 @@
 #include "ContainerFactory.h"
 
-IElectionsContainer* ContainerFactory::GetContainer(char type)
+ICandidateContainer* ContainerFactory::GetContainer(char type)
 {
     if (type == 'v')
     {
-        return new ElectionsVector;
+        return new CandidateVector;
     }
     else if (type == 'm')
     {
-        return new ElectionsMap;
+        return new CandidateMap;
     }
     else
     {

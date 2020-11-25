@@ -65,7 +65,7 @@ void Interactor::_Interaction(const std::string& file_to_input)
                     std::cin >> rait;
 
                     
-                    _container->AddItem(Elections(fullName, date, job,rait));
+                    _container->AddItem(Candidate(fullName, date, job,rait));
                 }
                 catch (std::logic_error e)
                 {
@@ -78,7 +78,7 @@ void Interactor::_Interaction(const std::string& file_to_input)
                     std::cout << "Enter a rating: ";
                     double rait;
                     std::cin >> rait;
-                    std::vector<Elections> tmp = _container->Search(rait);
+                    std::vector<Candidate> tmp = _container->Search(rait);
                     if (tmp.size() == 0)
                         std::cout << "No elements\n";
                     else
@@ -143,7 +143,7 @@ void Interactor::_FileParse(const std::string& file_to_input)
             fin >> rait;
 
             
-            _container->AddItem(Elections(fullName, date, job,rait));
+            _container->AddItem(Candidate(fullName, date, job,rait));
         }
         catch (std::logic_error e)
         {

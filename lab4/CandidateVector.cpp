@@ -1,16 +1,16 @@
-#include "ElectionsVector.h"
+#include "CandidateVector.h"
 
-void ElectionsVector::AddItem(const Elections& item) 
+void CandidateVector::AddItem(const Candidate& item) 
 {
     _vec.push_back(item);
 }
 
-std::vector<Elections> ElectionsVector::Search(double rait) const 
+std::vector<Candidate> CandidateVector::Search(double rait) const 
 {
     if (rait < 0.0 || rait > 100.0)
         throw std::logic_error("bad rating\n");
     
-    std::vector<Elections> candidates;
+    std::vector<Candidate> candidates;
 
     for (int i =0; i < _vec.size(); ++i)
     {

@@ -1,17 +1,17 @@
-#include "ElectionsMap.h"
+#include "CandidateMap.h"
 
-void ElectionsMap::AddItem(const Elections& item)
+void CandidateMap::AddItem(const Candidate& item)
 {
-    _map.insert(std::pair<double, Elections>(item.GetRating(),item));
+    _map.insert(std::pair<double, Candidate>(item.GetRating(),item));
 }
 
-std::vector<Elections> ElectionsMap::Search(double rait) const
+std::vector<Candidate> CandidateMap::Search(double rait) const
 {
 
     if (rait < 0.0 || rait > 100.0)
         throw std::logic_error("bad rating\n");
     
-    std::vector<Elections> candidates;
+    std::vector<Candidate> candidates;
 
     for (auto it = _map.begin(); it != _map.end(); ++it)
     {

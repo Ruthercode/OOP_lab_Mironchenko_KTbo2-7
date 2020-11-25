@@ -1,22 +1,22 @@
-#ifndef ELECTIONS_H
-#define ELECTIONS_H
+#ifndef CANDIDATE_H
+#define CANDIDATE_H
 #include <string>
 #include "Date.h"
-class Elections 
+class Candidate 
 {
 public:
-    Elections(const std::string& fullName, 
+    Candidate(const std::string& fullName, 
               const Date& dateOfBirth,
               const std::string& job, 
               const double& rating);
-    ~Elections() = default;
+    ~Candidate() = default;
 
     std::string GetFullName() const;
     Date GetDateOfBirth() const;
     std::string GetJob() const;
     double GetRating() const;
 
-    friend std::ostream& operator<<(std::ostream& out, const Elections& object);
+    friend std::ostream& operator<<(std::ostream& out, const Candidate& object);
 private:
     std::string _fullName;
     Date _dateOfBirth;
@@ -25,4 +25,4 @@ private:
 };
 
 
-#endif // !ELECTIONS_H
+#endif // !CANDIDATE_H
