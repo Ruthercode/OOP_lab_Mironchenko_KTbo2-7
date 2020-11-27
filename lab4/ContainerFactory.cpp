@@ -2,11 +2,11 @@
 
 ICandidateContainer* ContainerFactory::GetContainer(char type)
 {
-    if (type == 'v')
+    if (type == 'V')
     {
         return new CandidateVector;
     }
-    else if (type == 'm')
+    else if (type == 'M')
     {
         return new CandidateMap;
     }

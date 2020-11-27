@@ -1,19 +1,25 @@
 #include "Candidate.h"
 #include <iostream>
 
+int Candidate::s_idGenerator = 1;
+
 Candidate::Candidate(const std::string& fullName, 
               const Date& dateOfBirth,
               const std::string& job, 
               const double& rating): _fullName(fullName),
                                      _dateOfBirth(dateOfBirth),
                                      _job(job),
-                                     _rating(rating)                        
+                                     _rating(rating),
+                                     _objectID(s_idGenerator++)                        
 {
     if (_rating < 0.0)
         throw std::logic_error("bad rating\n");
 }
 
-
+int Candidate::GetID() const
+{
+    return _objectID;
+}
 std::string Candidate::GetFullName() const
 {
     return _fullName;
@@ -33,11 +39,11 @@ double Candidate::GetRating() const
 
 std::ostream& operator<<(std::ostream& out, const Candidate& object)
 {
-    out << "-----------------------------\n";
-    out << "Full name: " << object._fullName <<"\n";
-    out << "Date of birth: " << object._dateOfBirth <<"\n";
-    out << "Place of job: " << object._job <<"\n";
-    out << "Raiting: " << object._rating <<"\n";
-    out << "-----------------------------\n";
+    out << "---------------------------------------------------\n"
+    << "Id: " << object._objectID <<"\n"
+    << "Full name: " << object._fullName <<"\n"
+    << "Date of birth: " << object._dateOfBirth <<"\n"
+    << "Place of job: " << object._job <<"\n"
+    << "Raiting: " << object._rating <<"\n";
     return out;
 }

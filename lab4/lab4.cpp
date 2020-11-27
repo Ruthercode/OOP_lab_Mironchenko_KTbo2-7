@@ -7,6 +7,6 @@ using namespace std;
 int main()
 {
     Interactor it;
-    it.Init("in.txt");
+    it.Init("test.txt");
     return 0;
 }

@@ -8,7 +8,7 @@
 class ContainerFactory
 {
 public:
-    ContainerFactory() = default;
+    ContainerFactory()  = default;
     ~ContainerFactory() = default;
     ICandidateContainer* GetContainer(char type);
 };
