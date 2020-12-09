@@ -1,0 +1,12 @@
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/bin/Release/netcoreapp3.1/lab5.deps.json
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/bin/Release/netcoreapp3.1/lab5.runtimeconfig.json
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/bin/Release/netcoreapp3.1/lab5.runtimeconfig.dev.json
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/bin/Release/netcoreapp3.1/lab5.dll
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/bin/Release/netcoreapp3.1/lab5.pdb
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.AssemblyInfoInputs.cache
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.AssemblyInfo.cs
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.csproj.CoreCompileInputs.cache
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.dll
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.pdb
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.genruntimeconfig.cache
+/Users/ernestruthercode/Desktop/лаба/lab1_Mironchenko/lab5/lab5/obj/Release/netcoreapp3.1/lab5.csprojAssemblyReference.cache

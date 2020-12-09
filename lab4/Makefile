@@ -1,5 +1,5 @@
 all:
-	g++ -o main lab4.cpp Elections.cpp Date.cpp ElectionsVector.cpp ElectionsMap.cpp \
+	g++ -Wno-everything -o main lab4.cpp Candidate.cpp Date.cpp CandidateVector.cpp CandidateMap.cpp \
 	ContainerFactory.cpp Interactor.cpp
 
 clear:
