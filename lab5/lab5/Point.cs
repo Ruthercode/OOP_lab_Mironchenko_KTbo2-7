@@ -16,11 +16,11 @@ namespace lab5
         {
             if (direction == Direction.UP)
             {
-                return new Point(y + 1, x);
+                return new Point(y - 1, x);
             }
             else if (direction == Direction.DOWN)
             {
-                return new Point(y - 1, x);
+                return new Point(y + 1, x);
             }
 
             else if (direction == Direction.LEFT)

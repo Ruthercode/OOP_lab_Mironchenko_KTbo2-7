@@ -6,7 +6,7 @@ namespace lab5
     {
         static void Main()
         {
-            Game game = new Game(30,30);
+            Game game = new Game(30, 30);
             game.Init();
         }
     }
