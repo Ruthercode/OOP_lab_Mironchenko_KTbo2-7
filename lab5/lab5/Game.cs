@@ -38,15 +38,15 @@ namespace lab5
                 {
                     if (field[i, j] == 'S' || field[i, j] == 's')
                     {
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Red;
                     }
                     else if (field[i, j] == '$')
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
                     Console.Write(field[i,j]);
                 }
