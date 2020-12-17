@@ -5,60 +5,47 @@ namespace lab5
     public class Game
     {
         private bool _gameOver;
+
+        private Borderline _borderline;
         private Field _field;
         private Snake _snake;
-        
+
+        private FoodCreator _foodCreator;
+        private Point _food;
+
         public Game(int rows, int columns)
         {
             _gameOver = false;
+
             _field = new Field(rows, columns);
             _snake = new Snake(rows, columns);
+            _borderline = new Borderline(rows, columns);
+
+            _foodCreator = new FoodCreator(rows, columns);
+            _foodCreator.GenerateNewFood();
+
+            _food = _foodCreator.Food;
         }
 
-        private void _DrawField()
+        private void _UpdateField()
         {
-            Console.Clear();
-
-            int m = _field.Columns;
-
-            for (int i = 0; i < m + 2; ++i)
+            if (_snake.isCross(_food))
             {
-                Console.Write('#');
-            }
-            Console.WriteLine();
-
-            int n = _field.Rows;
-            char[,] field = _field.GetField;
-
-            for (int i = 0; i < n; ++i)
-            {
-                Console.Write('#');
-
-                for (int j = 0; j < m; ++j)
-                {
-                    if (field[i, j] == 'S' || field[i, j] == 's')
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    else if (field[i, j] == '$')
-                    {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-                    Console.Write(field[i,j]);
-                }
-
-                Console.WriteLine('#');
+                _foodCreator.GenerateNewFood();
+                _food = _foodCreator.Food;
+                _snake.IncreaseTail();
             }
 
-            for (int i = 0; i < m + 2; ++i)
+            if (_snake.isCross(_borderline))
             {
-                Console.Write('#');
+                throw new GameOverException();
             }
-            Console.WriteLine();
+
+            _borderline.Draw();
+            _field.Draw();
+            _food.Draw();
+            _snake.Draw();
+
         }
 
         private void _ReadDirection()
@@ -69,7 +56,8 @@ namespace lab5
                 _snake.ChangeDirection(key.Key);
             }
         }
-        public void Init()
+
+        public void Play()
         {
             int levelOfSpeed = -1;
             while (!(levelOfSpeed >= 1 && levelOfSpeed <= 10))
@@ -78,14 +66,15 @@ namespace lab5
                 levelOfSpeed = Convert.ToInt32(Console.ReadLine());
             }
 
-
+            
+            Console.Clear();
             while (!_gameOver)
             {
                 try
                 {
-                    _field.UpdateField(ref _snake);
-                    _DrawField();
                     _ReadDirection();
+                    _UpdateField();
+                    
                     _snake.Move();
                     Thread.Sleep(500/levelOfSpeed);
                 }

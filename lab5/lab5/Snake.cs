@@ -3,18 +3,9 @@ using System.Collections.Generic;
 
 namespace lab5
 {
-    public class Snake
+    public class Snake : Figure
     {
-        private List< Point> _snake;
-        public List<Point> GetSnake
-        {
-            get
-            {
-                return _snake;
-            }
-        }
-        // first y, second x
-
+        
         private int _columns;
         private int _rows;
 
@@ -24,8 +15,7 @@ namespace lab5
             _rows = rows;
             _columns = columns;
 
-            _snake = new List< Point>();
-            _snake.Add(new Point(rows / 2, columns / 2));
+            _figure.Add(new Point(rows / 2, columns / 2, 'S', ConsoleColor.Red));
 
             _direction = Direction.LEFT;
         }
@@ -53,44 +43,24 @@ namespace lab5
 
         public void IncreaseTail()
         {
-            int idx = _snake.Count - 1;
+            int idx = _figure.Count - 1;
 
-            int xTail = _snake[idx].x;
-            int yTail = _snake[idx].y;
+            int xTail = _figure[idx].x;
+            int yTail = _figure[idx].y;
 
             Move();
 
-            _snake.Add(new Point(yTail, xTail));
+            _figure.Add(new Point(yTail, xTail,'S', ConsoleColor.Red));
         }
+
         public void Move()
         {
-            _snake.Insert(0, _snake[0].GetNextPoint(_direction));
-            _snake.Remove(_snake[_snake.Count-1]);
+            _figure.Insert(0, _figure[0].GetNextPoint(_direction));
+            _figure.Remove(_figure[_figure.Count-1]);
 
-            if (_snake[0].y >= _rows)
+            for (int i = 1; i < _figure.Count; ++i)
             {
-                _snake[0].y = 0;
-            }
-
-            if (_snake[0].y < 0)
-            {
-                _snake[0].y = _rows - 1;
-            }
-
-            if (_snake[0].x >= _columns)
-            {
-                _snake[0].x = 0;
-            }
-
-            if (_snake[0].x < 0)
-            {
-                _snake[0].x = _columns - 1;
-            }
-
-            for (int i = 1; i < _snake.Count; ++i)
-            {
-                if ((_snake[i].x == _snake[0].x) &&
-                    (_snake[i].y == _snake[0].y))
+                if (_figure[0].isCross(_figure[i]))
                 {
                     throw new GameOverException("Game over!\n");
                 }

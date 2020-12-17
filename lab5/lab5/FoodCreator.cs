@@ -3,27 +3,16 @@ namespace lab5
 {
     public class FoodCreator
     {
+        private Point _food;
+        public Point Food
+        {
+            get { return _food; }
+        }
+
         private int _columns;
         private int _rows;
 
-        private int _xFood;
-        public int XFood
-        {
-            get
-            {
-                return _xFood;
-            }
-        }
-
-        private int _yFood;
-        public int YFood
-        {
-            get
-            {
-                return _yFood;
-            }
-        }
-
+        
         private Random _generator;
 
         public FoodCreator(int rows, int columns)
@@ -32,14 +21,13 @@ namespace lab5
             _rows = rows;
             _columns = columns;
 
-            _xFood = columns / 2;
-            _yFood = rows / 2;
+            _food = new Point(rows / 2, columns / 2, '$', ConsoleColor.Yellow);
         }
 
-        public void GenerateFood()
+        public void GenerateNewFood()
         {
-            _xFood = _generator.Next(0, _columns);
-            _yFood = _generator.Next(0, _rows);
+            _food.x = _generator.Next(1, _columns+1);
+            _food.y = _generator.Next(1, _rows+1);
         }
     }
 }
