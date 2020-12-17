@@ -25,6 +25,8 @@ namespace lab5
             _foodCreator.GenerateNewFood();
 
             _food = _foodCreator.Food;
+
+            Console.SetWindowSize(rows, columns);
         }
 
         private void _UpdateField()
@@ -68,6 +70,7 @@ namespace lab5
 
             
             Console.Clear();
+            
             while (!_gameOver)
             {
                 try
