@@ -76,9 +76,10 @@ namespace lab5
                 try
                 {
                     _ReadDirection();
-                    _UpdateField();
                     
                     _snake.Move();
+                    _UpdateField();
+                    
                     Thread.Sleep(500/levelOfSpeed);
                 }
                 catch (GameOverException)

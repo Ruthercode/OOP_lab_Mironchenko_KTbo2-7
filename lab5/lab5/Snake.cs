@@ -58,7 +58,12 @@ namespace lab5
             _figure.Insert(0, _figure[0].GetNextPoint(_direction));
             _figure.Remove(_figure[_figure.Count-1]);
 
-            for (int i = 1; i < _figure.Count; ++i)
+            if (_figure.Count > 2 &&_figure[0].isCross(_figure[2]))
+            {
+                _figure.Reverse();
+            }
+            
+            for (int i = 3; i < _figure.Count; ++i)
             {
                 if (_figure[0].isCross(_figure[i]))
                 {
