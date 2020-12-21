@@ -32,7 +32,7 @@ namespace lab5
 
             _direction = Direction.LEFT;
 
-            //Console.SetWindowSize(rows, columns);
+            Console.SetWindowSize(rows+2, columns+2);
         }
 
         private void _UpdateField()
