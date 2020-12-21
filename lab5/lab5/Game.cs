@@ -6,27 +6,33 @@ namespace lab5
     {
         private bool _gameOver;
 
-        private Borderline _borderline;
-        private Field _field;
-        private Snake _snake;
+        private Figure _borderline;
+        private Figure _field;
+        private Figure _snake;
 
         private FoodCreator _foodCreator;
         private Point _food;
+
+        private Direction _direction;
 
         public Game(int rows, int columns)
         {
             _gameOver = false;
 
-            _field = new Field(rows, columns);
-            _snake = new Snake(rows, columns);
-            _borderline = new Borderline(rows, columns);
+            FigureFactory factory = new FigureFactory(rows, columns);
+
+            _field = factory.CreateField();
+            _snake = factory.CreateSnake();
+            _borderline = factory.CreateBorderline();
 
             _foodCreator = new FoodCreator(rows, columns);
             _foodCreator.GenerateNewFood();
 
             _food = _foodCreator.Food;
 
-            Console.SetWindowSize(rows, columns);
+            _direction = Direction.LEFT;
+
+            //Console.SetWindowSize(rows, columns);
         }
 
         private void _UpdateField()
@@ -35,7 +41,7 @@ namespace lab5
             {
                 _foodCreator.GenerateNewFood();
                 _food = _foodCreator.Food;
-                _snake.IncreaseTail();
+                _snake.AddPoint();
             }
 
             if (_snake.isCross(_borderline))
@@ -55,7 +61,22 @@ namespace lab5
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo key = Console.ReadKey();
-                _snake.ChangeDirection(key.Key);
+                switch (key.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        _direction = Direction.LEFT;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        _direction = Direction.RIGHT;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        _direction = Direction.DOWN;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        _direction = Direction.UP;
+                        break;
+                }
+
             }
         }
 
@@ -77,7 +98,7 @@ namespace lab5
                 {
                     _ReadDirection();
                     
-                    _snake.Move();
+                    _snake.Move(_direction);
                     _UpdateField();
                     
                     Thread.Sleep(500/levelOfSpeed);

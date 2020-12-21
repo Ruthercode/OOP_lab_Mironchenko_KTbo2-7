@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace lab5
 {
-    public class Figure
+    public abstract class Figure
     {
         protected List<Point> _figure;
 
@@ -42,5 +42,8 @@ namespace lab5
             }
             return false;
         }
+
+        public abstract void Move(Direction direction);
+        public abstract void AddPoint();
     }
 }

@@ -21,5 +21,15 @@ namespace lab5
                 _figure.Add(new Point(rows+1, i, '#', ConsoleColor.Black));
             }
         }
+
+        public override void AddPoint()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Move(Direction direction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

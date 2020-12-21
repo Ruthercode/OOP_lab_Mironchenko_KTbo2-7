@@ -16,5 +16,15 @@ namespace lab5
                 }
             }
         }
+
+        public override void AddPoint()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Move(Direction direction)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
