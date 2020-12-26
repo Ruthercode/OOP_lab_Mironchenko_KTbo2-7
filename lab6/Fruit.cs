@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace lab6
 {
-    class Fruit : PictureBox
+    public class Fruit : PictureBox
     {
         public Fruit(int widthAndHeight, int sizeOfSides)
         {

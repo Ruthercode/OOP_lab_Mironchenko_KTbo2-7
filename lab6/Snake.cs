@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace lab6
 {
-    class Snake
+    public class Snake
     {
         private int _widthAndHeight;
         private int _sizeOfSides;
@@ -99,9 +99,13 @@ namespace lab6
 
         }
 
-        private void _CheckTailDamage()
+        private void _CheckTailDamage(Direction direction)
         {
-            for (int i = 1; i < _size; ++i)
+            if (_snake.Count > 2 && (_snake[0].Location == _snake[2].Location))
+            {
+                _snake.Reverse();
+            }
+            for (int i = 3; i < _size; ++i)
             {
                 if (_snake[i].Location == _snake[0].Location)
                 {
@@ -133,7 +137,7 @@ namespace lab6
             }
 
             _CheckBorders();
-            _CheckTailDamage();
+            _CheckTailDamage(direction);
 
 
         }

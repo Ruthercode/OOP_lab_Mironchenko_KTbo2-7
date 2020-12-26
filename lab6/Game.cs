@@ -12,64 +12,76 @@ namespace lab6
 {
     public partial class Game : Form
     {
-        private int _widthAndHeight = 600;
-        private int _labelHeight = 50;
-        private int _sizeOfSides = 30;
+        private int _widthAndHeight;
+        public int WidthAndHeight
+        {
+            get { return _widthAndHeight; }
+            set { _widthAndHeight = value; }
+        }
+
+        private int _labelHeight;
+        public int LabelHeight
+        {
+            get { return _labelHeight; }
+            set { _labelHeight = value; }
+        }
+
+        private int _sizeOfSides;
+        public int SizeOfSides
+        {
+            get { return _sizeOfSides; }
+            set { _sizeOfSides = value; }
+        }
+
+        private Field _field;
+        public Field Field
+        {
+            get { return _field; }
+            set { _field = value; }
+        }
         private Fruit _fruit;
+        public Fruit Fruit
+        {
+            get { return _fruit; }
+            set { _fruit = value; }
+        }
+
         private Direction _direction;
+        public Direction Direction
+        {
+            get { return _direction; }
+            set { _direction = value; }
+        }
+
         private Snake _snake;
-        private int _score;
+        public Snake Snake
+        {
+            get { return _snake; }
+            set { _snake = value; }
+        }
+
+        private int _score; 
+        public int Score
+        {
+            get { return _score; }
+            set { _score = value; }
+        }
         private Label _scoreLabel;
-        private Timer timer;
+
+        public Label ScoreLabel
+        {
+            get { return _scoreLabel; }
+            set { _scoreLabel = value; }
+        }
+        private Timer _timer;
         public Game()
         {
             InitializeComponent();
 
-            this.Text = "Snake";
-            this.Width = _widthAndHeight + _widthAndHeight/_sizeOfSides;
-            this.Height = this.Width + _labelHeight;
-
-            FieldGenerator generator = new FieldGenerator(_widthAndHeight, _sizeOfSides);
-            List<PictureBox> field = generator.GenerateField();
-
-            foreach (PictureBox pic in field)
-            {
-                this.Controls.Add(pic);
-            }
-
-            _fruit = new Fruit(_widthAndHeight, _sizeOfSides);
-            this.Controls.Add(_fruit);
-
-            _snake = new Snake(_widthAndHeight, _sizeOfSides);
-            this.Controls.Add(_snake[0]);
-
-            _score = 0;
-
-            _scoreLabel = new Label
-            {
-                Text = "Score: 0",
-                Location = new Point(_widthAndHeight/2, _widthAndHeight),
-                Size = new Size(_widthAndHeight, _labelHeight)
-            };
-            this.Controls.Add(_scoreLabel);
-
-            DialogResult result = MessageBox.Show(this, 
-                "Do you want to play on heavy difficulty?",
-                "Choose level", MessageBoxButtons.YesNo,
-            MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-            MessageBoxOptions.RightAlign);
-
-            timer = new Timer();
-            timer.Tick += new EventHandler(_Update);
-            if (result == DialogResult.Yes)
-            {
-                timer.Interval = 50;
-            }
-            else
-            {
-                timer.Interval = 200;
-            }
-            timer.Start();
+            _timer = new Timer();
+            _timer.Tick += new EventHandler(_Update);
+            _timer.Interval = 200;
+            _timer.Start();
 
             this.KeyDown += new KeyEventHandler(_ChangeDirection);
         }
@@ -83,7 +95,7 @@ namespace lab6
             }
             catch (GameOverException e)
             {
-                timer.Stop();
+                _timer.Stop();
                 MessageBox.Show(e.Message);
                 Application.Exit();
             }

@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Direction.cs" />
-    <Compile Include="FieldGenerator.cs" />
+    <Compile Include="Field.cs" />
     <Compile Include="Fruit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -57,6 +57,7 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameBuilder.cs" />
     <Compile Include="GameOverException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

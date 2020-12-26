@@ -1,0 +1,9 @@
+C:\Users\Pavel\source\repos\lab7\bin\Debug\lab7.exe.config
+C:\Users\Pavel\source\repos\lab7\bin\Debug\lab7.exe
+C:\Users\Pavel\source\repos\lab7\bin\Debug\lab7.pdb
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.csprojAssemblyReference.cache
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.Properties.Resources.resources
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.csproj.GenerateResource.cache
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.csproj.CoreCompileInputs.cache
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.exe
+C:\Users\Pavel\source\repos\lab7\obj\Debug\lab7.pdb

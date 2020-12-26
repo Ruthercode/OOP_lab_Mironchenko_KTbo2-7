@@ -8,6 +8,7 @@ namespace lab6
 {
     static class Program
     {
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +17,21 @@ namespace lab6
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Game());
+
+            GameBuilder builder = new GameBuilder();
+
+            builder.SetWigthAndHeight();
+            builder.SetLabelHeight();
+            builder.SetSizeOfSizes();
+            builder.SetWindowParameters();
+            builder.SetDirection();
+            builder.SetSnake();
+            builder.SetFruit();
+            builder.SetScore();
+            builder.SetScoreLabel();
+            builder.SetField();
+            builder.AddItemsToControls();
+            Application.Run(builder.Game);
         }
     }
 }
